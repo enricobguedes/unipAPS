@@ -50,6 +50,7 @@ class Application:
     def Encriptografar(self):
         #função para encriptografar
         errado = "Maior que 128 caracteres, tente novamente." #tentativa para aparecer na Label de keys
+        errado1 = self.fraseEntradaStr.get(); #atribuindo texto digitado para checar possivel erro
         encriptografar = self.fraseEntradaStr.get() #Busca e atríbui texto digítado na variável.
         global textoEncod #declaração global para ser usada na próx função
 
@@ -60,8 +61,8 @@ class Application:
                 textoEncod = eC.encrypt(encriptografar) #encodifica os bytes
                 self.fraseEntradaLbl["text"] = textoEncod #frase exposta no label de chave
                 break 
-            else: ###não consigo fazer aparecer uma mensagem quando o usuário não escreve nada na barra###
-                self.fraseEntradaLbl["text"] = errado
+            elif (len(errado1) == 0 and len(errado1) == 1): ###nova tentativa de fazer funcionar.
+                self.fraseEntradaLbl.set["text"] = errado
                 break
 
 
